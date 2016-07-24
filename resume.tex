@@ -1,82 +1,144 @@
-% !TEX program = xelatex
+% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
+% (c) 2003-2007 David J. Grant <davidgrant-at-gmail.com> http://www.davidgrant.ca
+% (c) 2008 Nathaniel Johnston <nathaniel@nathanieljohnston.com> http://www.nathanieljohnston.com
+%
+% (c) 2012 Scott Clark <sc932@cornell.edu> cam.cornell.edu/~sc932
+%
+%This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
 
-\documentclass{resume}
-%\usepackage{zh_CN-Adobefonts_external} % Simplified Chinese Support using external fonts (./fonts/zh_CN-Adobe/)
-%\usepackage{zh_CN-Adobefonts_internal} % Simplified Chinese Support using system fonts
+\documentclass[letterpaper,11pt]{article}
+
+\newlength{\outerbordwidth}
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\usepackage[svgnames]{xcolor}
+\usepackage{framed}
+\usepackage{hyperref}
+\usepackage{tocloft}
+\usepackage{zh_CN-Adobefonts_external}
+\RequirePackage{fontawesome}
+
+
+
+%-----------------------------------------------------------
+%Edit these values as you see fit
+
+\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
+\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
+\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
+
+
+%-----------------------------------------------------------
+%Margin setup
+
+\setlength{\evensidemargin}{-0.25in}
+\setlength{\headheight}{0in}
+\setlength{\headsep}{0in}
+\setlength{\oddsidemargin}{-0.25in}
+\setlength{\paperheight}{11in}
+\setlength{\paperwidth}{8.5in}
+\setlength{\tabcolsep}{0in}
+\setlength{\textheight}{9.8in}
+\setlength{\textwidth}{7in}
+\setlength{\topmargin}{-0.5in}
+\setlength{\topskip}{0in}
+\setlength{\voffset}{0.1in}
+
+
+%-----------------------------------------------------------
+%Custom commands
+\newcommand{\resitem}[1]{\item #1 \vspace{-5pt}}
+\newcommand{\resheading}[1]{\vspace{-5pt}
+  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
+    \begin{shaded}
+\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
+    \end{shaded}
+  }\vspace{-13pt}
+}
+\newcommand{\ressubheading}[4]{
+\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+		\textbf{#1} & #2 \\
+		\textit{#3} & \textit{#4} \\
+\end{tabular*}\vspace{-4pt}}
+\newcommand{\timeduring}[2]{#1\hspace{1pt}-\hspace{1pt}#2}
+%-----------------------------------------------------------
+
 
 \begin{document}
-\pagenumbering{gobble} % suppress displaying page number
 
-\name{Bin Yuan}
 
-% {E-mail}{mobilephone}{homepage}
-% be careful of _ in emaill address
-\contactInfo{my\_address@yuanbin.me}{(+86) 131-221-87xxx}{http://www.yuanbin.me}
-% {E-mail}{mobilephone}
-% keep the last empty braces!
-%\contactInfo{xxx@yuanbin.me}{(+86) 131-221-87xxx}{}
- 
-\section{\faGraduationCap\ Education}
-\datedsubsection{\textbf{Shanghai Jiao Tong University (SJTU)}, Shanghai, China}{2013 -- Present}
-\textit{Master student} in Electronics Engineering (EE), expected March 2016
-\datedsubsection{\textbf{Xidian University}, Shaanxi, China}{2009 -- 2013}
-\textit{B.S.} in Electronics Engineering (EE)
 
-\section{\faUsers\ Experience}
-\datedsubsection{\textbf{FLAG Inc.} California, America}{2012 -- Present}
-\role{Summer Intern}{Manager: xxx}
-Brief introduction: xxx.
+\begin{center}
+\textbf{\Huge 宋其翰}\vspace{1.25mm}   \\
+    \faEnvelope\hspace{1mm}sqh@sqh.me \hspace{10mm} \faPhone \hspace{1mm} 188-1063-9189\hspace{10mm}\faGithub\hspace{1mm}\href{https://github.com/qhsong}{ https://github.com/qhsong}\hspace{10mm} \faExternalLink\hspace{1mm}\href{https://sqh.me}{https://sqh.me}\hspace{10mm}\\求职意向：Linux后台开发
+\end{center}
+%\end{tabular*}
+\vspace{-13pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{教育背景}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
-  \item Implemented xxx feature
-  \item Optimized xxx 5\%
-  \item xxx
+
+\item \ressubheading{北京邮电大学}{\timeduring{2014.9}{2017.3}}{研究生, 软件工程, 信息网络中心实验室}{}
+\vspace{-5pt}
+\item \ressubheading{燕山大学}{\timeduring{2010.9}{2014.6}}{本科, 计算机科学与技术}{}
 \end{itemize}
 
-\datedsubsection{\textbf{xxx Projects}}{Jan. 2015 -- Present}
-\role{C, Python, Django, Linux}{Individual Projects, collaborated with xxx}
-Brief introduction: xxx
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{实习/项目经历}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
-  \item Implemented xxx feature
-  \item Optimized xxx 5\%
-  \item xxx
+\item \ressubheading{红帽软件}{\timeduring{2016.6}{至今}}{Linux, Python}{实习}
+\vspace{-3pt}
+\begin{itemize}\setlength{\itemsep}{-2pt}
+\item 参与公司开源项目: Rhel故障检测及预警平台Insights的开发
+\item 阅读Linux相关命令源码，分析对应输出，并使用Python解析
+\item 阅读红帽内部知识库，了解红帽客户在使用时出现的问题，搭建相关环境模拟并分析
 \end{itemize}
 
-\datedsubsection{\textbf{\LaTeX\ résumé template}}{May. 2015 -- Present}
-\role{\LaTeX, Maintainer}{Individual Projects}
-An elegant \LaTeX\ résumé template, https://github.com/billryan/resume
-\begin{itemize}
-  \item Easy to be further customized or extended
-  \item Full support for unicode characters (e.g. CJK) with \XeLaTeX\
-  \item FontAwesome 4.5.0 support
+\item \ressubheading{易采阳光企业采购平台    }{\timeduring{2015.9}{2016.4}}{Golang, Martini, MongoDB, AngularJS, Docker}{实习}
+\vspace{-3pt}
+\begin{itemize}\setlength{\itemsep}{-2pt}
+ \item 负责后台开发，满足客户经理提出的需求，项目地址:\href{https://www.sunshineb2b.com/}{ https://www.sunshineb2b.com/}
+  \item 负责网站部分运维工作，同时使用Gitlab CI和Docker构建了一套Golang持续集成环境
+\item 设计并实现采购平台与第三方商城系统接口调用，负责公司与第三方商城运维沟通工作
+ \item 优化商城搜索速度，从秒级别降低到毫秒级别，大幅度提升用户体验
 \end{itemize}
 
-% Reference Test
-%\datedsubsection{\textbf{Paper Title\cite{zaharia2012resilient}}}{May. 2015}
-%An xxx optimized for xxx\cite{verma2015large}
-%\begin{itemize}
-%  \item main contribution
-%\end{itemize}
-
-\section{\faCogs\ Skills}
-\begin{itemize}[parsep=0.5ex]
-  \item Programming Languages: C == Python > C++ > Java
-  \item Platform: Linux
-  \item Development: Web, xxx
+\item \ressubheading{北京康夫子科技有限公司}{2015.7 - 2015.10}{Python, Tornado, MongoDB, Bootstrap}{实习}
+\vspace{-3pt}
+\begin{itemize}\setlength{\itemsep}{-2pt}
+ \item 负责App后端开发
+ \item 使用Python设计并实现了一个JSON数据管理仓库系统，能够实现对JSON数据进行导入、删除等操作，方便其他人对数据进行审核
 \end{itemize}
 
-\section{\faHeartO\ Honors and Awards}
-\datedline{\textit{\nth{1} Prize}, Award on xxx }{Jun. 2013}
-\datedline{Other awards}{2015}
-
-\section{\faInfo\ Miscellaneous}
-\begin{itemize}[parsep=0.5ex]
-  \item Blog: http://your.blog.me
-  \item GitHub: https://github.com/username
-  \item Languages: English - Fluent, Mandarin - Native speaker
+\item \ressubheading{基于Linux的日历同步软件}{}{C++, Muduo, Protobuf, Mysql}{本科毕业设计}
+\vspace{-3pt}
+\begin{itemize}\setlength{\itemsep}{-2pt}
+ \item 在Linux下使用C++设计并实现了日历同步软件服务器端
+ \item 使用muduo作为TCP/IP网络库，使用Protobuf作为消息序列化和反序列化工具
+ \item 使用C#编写客户端
 \end{itemize}
 
-%% Reference
-%\newpage
-%\bibliographystyle{IEEETran}
-%\bibliography{mycite}
+\item \ressubheading{多线程网络爬虫、TCP网络劫持程序}{}{C, Libevent, Nanomsg, Libpcap, PF\_RING,}{个人项目}
+\vspace{-3pt}
+\begin{itemize}\setlength{\itemsep}{-2pt}
+ \item 在Linux下使用C语言实现了一个简单的网络爬虫
+ \item 能够实现对网络上的TCP数据包进行劫持
+\end{itemize}
+
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{技能}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{itemize}\setlength{\itemsep}{-2pt}
+ \item 编程语言: C=Golang\textgreater Python \textgreater C++ \textgreater C\#
+  \item 虚拟化: VMware ESXi, Docker
+ \item 计算机网络: TCP/IP, Linux Socket 编程, Libpcap, PF\_RING, DPDK
+ \item 版本管理: Git
+ \item 获得证书: 校级优秀研究生、
+ \item 语言: 英语(CET-6)
+\end{itemize}
+
 \end{document}
